@@ -7,7 +7,7 @@
             <a class="nav-header" href="/">Algot Holton</a>
         </div>
         <div class="nav-item">
-            <a href="https://www.linkedin.com/in/algot-holton"><img class="li-logo" src="../assets/LI-In-Bug.png" alt="LinkedIn"></a>
+            <a href="https://www.linkedin.com/in/algot-holton" target="_blank"><img class="li-logo" src="../assets/LI-In-Bug.png" alt="LinkedIn"></a>
         </div>
     </div>
 </template>

@@ -1,11 +1,14 @@
 <template>
     <div class="navbar">
-        <ul>
-            <li class="navitem"><a href="https://github.com/Drawserqzez" target="_blank"><img src="../assets/github-logo.png" alt="Github"></a></li>
-            <li class="navitem centerItem"><div class="header">Algot Holton</div></li>
-            <li class="navitem"><a href="https://www.linkedin.com/in/algot-holton"><img class="dum-logga" src="../assets/LI-In-Bug.png" alt="LinkedIn"></a></li>
-        </ul>
-        <!-- <h1>Algot Holton</h1> -->
+        <div class="nav-item">
+            <a href="https://github.com/Drawserqzez" target="_blank"><img class="gh-logo" src="../assets/github-logo.png" alt="Github"></a>
+        </div>
+        <div class="nav-item center-item">
+            <a class="nav-header" href="/">Algot Holton</a>
+        </div>
+        <div class="nav-item">
+            <a href="https://www.linkedin.com/in/algot-holton"><img class="li-logo" src="../assets/LI-In-Bug.png" alt="LinkedIn"></a>
+        </div>
     </div>
 </template>
 
@@ -19,35 +22,65 @@ export default {
 
 <style scoped>
     .navbar {
+        width: 100%;
+        height: 4rem;
+        padding: 1rem 0;
+        /* margin-bottom: 1rem; */
+
         border-bottom: solid black;
-        padding-bottom: 8%;
-    }
+        
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
 
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
 
-    .navitem {
-        float: left;
-        width: 25%;
-        margin-left: auto;
-        margin-top: 12px;
-    }
-
-    .centerItem {
-        width: 50%;
-    }
-
-    .header {
         color: black;
-        font-size: 2em;
+        background-color: #0fa3b1;
     }
 
-    .dum-logga {
-        width: 15%;
-        filter: brightness(0%)
+    .nav-item {
+        height: 3rem;
+        height: 100%;
+        width: 6rem;
+        padding: 1rem;
+        margin-top: -1rem;
+    }
+
+    .nav-item:hover {
+        background-color: #0D8B96;
+    }
+
+    .nav-header {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: inherit;
+    }
+
+    .li-logo {
+        height: 2.5rem;
+        width: 3rem;
+        filter: brightness(0%);
+    }
+
+    .gh-logo, .li-logo {
+        margin-top: 1rem;
+    }
+    
+    @media (min-width: 786px) {
+        .nav-header {
+            font-size: 2rem;
+        }
+
+        .center-item {
+            width: 15rem;
+            margin-top: -1rem;
+            padding-bottom: 0;
+            padding-top: 2rem;
+        }
     }
 
 </style>

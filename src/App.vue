@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <Wrapper />
+    <Navigation />
+    <div class="wrapper">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import Wrapper from './components/Wrapper.vue'
+import Navigation from './components/Navigation.vue'
 
 export default {
   name: 'App',
   components: {
-    Wrapper
+    Navigation
   }
 }
 </script>
@@ -21,9 +24,8 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  /* min-height: 78.7em; */
-  /* background-image: linear-gradient(rgb(78, 78, 78), white) */
-  background-color: rgb(80, 80, 80);
+  background-color: #FBFCFF;
+  background-color: #A1F0F7;
 }
 
 #app {
@@ -31,10 +33,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  padding-top: 1rem;
+}
+
+@media (min-width: 786px) {
+  .wrapper {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: solid 1px black;
+    border-top: none;
+    border-bottom: none; */
+  }
 }
 </style>

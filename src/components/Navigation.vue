@@ -25,9 +25,8 @@ export default {
         width: 100%;
         height: 4rem;
         padding: 1rem 0;
-        /* margin-bottom: 1rem; */
 
-        border-bottom: solid black;
+        border-bottom: solid white;
         
         position: -webkit-sticky;
         position: sticky;
@@ -37,8 +36,8 @@ export default {
         flex-direction: row;
         justify-content: space-around;
 
-        color: black;
-        background-color: #0fa3b1;
+        color: inherit;
+        background-color: inherit;
     }
 
     .nav-item {

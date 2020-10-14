@@ -1,6 +1,16 @@
 <template>
     <div class="footer">
-        <p><a class="footer-link" target="blank" :href="this.chosenFooterText.url">{{ this.chosenFooterText.text }}</a></p>
+        <transition name="footer-fade">
+            <p v-if="show">
+                <a 
+                    class="footer-link" 
+                    target="blank" 
+                    :href="this.chosenFooterText.url">
+                        {{ this.chosenFooterText.text }}
+                </a>
+            </p>
+
+        </transition>
     </div>    
 </template>
 
@@ -19,27 +29,35 @@ export default {
                     url: 'https://github.com/drawserqzez/drawserqzez.github.io',
                     text: 'Hosted on Github!'
                 },
-                {
-                    url: 'https://youtu.be/sAn7baRbhx4',
-                    text: "Didn't expect this, did ya?!"
-                }
+                // {
+                //     url: 'https://youtu.be/sAn7baRbhx4',
+                //     text: "Didn't expect this, did ya?!"
+                // }
             ],
             chosenFooterText: {
                 url: "",
                 text: ""
             },
+            changeDelay: 8000,
+            show: Boolean,
         }
     },
     methods: {
-        getFooterText: function() {
-            let index = Math.floor(Math.random() * this.footerText.length);
+        getFooterText: function(currentIndex) {
+            this.show = true;
+            let index;
+            do {
+                index = Math.floor(Math.random() * this.footerText.length);
+            }
+            while (index == currentIndex)
 
             this.chosenFooterText = this.footerText[index];
-            setTimeout(this.getFooterText, 8000);
+            setTimeout(() => this.show = false, this.changeDelay - this.changeDelay / 8);
+            setTimeout(this.getFooterText, this.changeDelay, index);
         }
     },
     mounted: function() {
-        this.getFooterText();
+        this.getFooterText(0);
     }
 }
 </script>
@@ -51,10 +69,10 @@ export default {
         left: 0;
         width: 100%;
         height: 2rem;
-        background-color: #0fa3b1;
+        z-index: 99;
 
-        border-top: solid black;
-
+        background-color: #141414;
+        border-top: solid rgb(109, 109, 109);
         padding: .4rem 0;
     }
 
@@ -63,11 +81,18 @@ export default {
     } 
 
     .footer-link {
-        color: black;
-        text-decoration: none;
+        color: inherit;
     }
 
     .footer-link:hover {
-        text-decoration: underline;
+        font-size: 1.1rem;
+    }
+
+    .footer-fade-enter-active, .footer-fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .footer-fade-enter, .footer-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 </style>

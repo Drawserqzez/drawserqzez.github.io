@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <Navigation />
-    <div class="wrapper">
+    <!-- <Navigation /> -->
+    <main>
       <router-view></router-view>
-    </div>
+    </main>
     <Footer />
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue'
+// import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Navigation,
+    // Navigation,
     Footer
   }
 }
@@ -27,8 +27,9 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #FBFCFF;
-  background-color: #A1F0F7;
+  background-color: #141414;
+  color: rgb(1, 236, 236);
+  /* background-color: #A1F0F7; */
 }
 
 #app {
@@ -41,13 +42,13 @@ body {
   margin: 0;
 }
 
-.wrapper {
+main {
   width: 100%;
   padding-top: 1rem;
 }
 
 @media (min-width: 786px) {
-  .wrapper {
+  main {
     width: 60%;
     margin-left: auto;
     margin-right: auto;

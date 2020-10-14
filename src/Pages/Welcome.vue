@@ -5,7 +5,7 @@
         </transition>
 
         <div id="main-content">
-            Här kommer du att hitta mitt <router-link to="/cv" style="color: inherit">CV</router-link> och lite annat skoj när sidan väl är klar :)
+            Här kommer du att hitta mitt <router-link to="/skills" style="color: inherit">CV</router-link> och lite annat skoj när sidan väl är klar :)
             <!-- TODO: Gör en kontaktsida och länka den här -->
         </div>
     </div>

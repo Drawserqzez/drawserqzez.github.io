@@ -1,0 +1,33 @@
+# Graciously taken from https://swimburger.net/blog/dotnet/how-to-deploy-aspnet-blazor-webassembly-to-github-pages
+name: Deploy to GitHub Pages
+
+on: 
+  push: 
+    branches: [ master ]
+
+jobs: 
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with: 
+        dotnet-version: 5
+      
+    - name: Pushlish project
+      run: dotnet publish drawserqzez.github.io -c Release -o release --no-logo
+    
+    - name: copy index.html to 404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+    - name: Add .nojekyll file
+      run: touch release/.nojekyll
+
+    - name: Commit to github pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: dist
+        FOLDER: release/wwwroot

@@ -23,7 +23,7 @@ jobs:
       run: cp release/wwwroot/index.html release/wwwroot/404.html
 
     - name: Add .nojekyll file
-      run: touch release/.nojekyll
+      run: touch release/wwwroot/.nojekyll
 
     - name: Commit to github pages
       uses: JamesIves/github-pages-deploy-action@3.7.1

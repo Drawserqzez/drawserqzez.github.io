@@ -14,7 +14,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with: 
-        dotnet-version: 5
+        dotnet-version: 5.0.x
       
     - name: Pushlish project
       run: dotnet publish drawserqzez.github.io -c Release -o release --no-logo

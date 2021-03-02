@@ -1,0 +1,38 @@
+/* /Shared/MainLayout.razor.rz.scp.css */
+.page[b-3dg521tpm3] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+main[b-3dg521tpm3] {
+    align-self: auto;
+    justify-self: auto;
+    min-height: 75vh;
+    height: 80vh;
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+nav[b-448in6zevr] {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2em;
+
+    border-bottom: rgba(255, 25, 179, 0.9) solid 2px;
+}
+
+.navitem[b-448in6zevr] {
+    padding: .3em;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    border: var(--dark-bg) 1px solid;
+
+    min-width: 2em;
+}
+
+.navitem:hover[b-448in6zevr] {
+    text-decoration: none;
+    border: whitesmoke 1px solid;
+    border-radius: 10px;
+}

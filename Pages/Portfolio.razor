@@ -1,7 +1,38 @@
 @page "/portfolio/"
 
-<h1>Some day this page will contain my portfolio.</h1>
-<h2>Right now it's just random stuff, apologies</h2>
+@using Draws.Web.Data
+@using Draws.Web.Services
 
+@inject GithubService ghService
 
-<p>And a link to my <a href="https://www.github.com/Drawserqzez/">github.</a></p>
+<h1>Här kan du hitta en lista på alla mina repos på github!</h1>
+
+@if (_repos != null && _repos.Any()) {
+    <div class="d-flex justify-content-evenly repo-container">
+        @foreach (var repo in _repos) {
+            <RepoDisplay Repository="repo" />
+        }
+    </div>
+}
+else if (String.IsNullOrEmpty(_errorMessage)) {
+    <h4>@_errorMessage</h4>
+} 
+else {
+    <p>Loading...</p>
+}
+
+@code {
+    private string _errorMessage;
+    private IEnumerable<Repository> _repos;
+
+    protected override async Task OnInitializedAsync() {
+        try {
+            _repos = await ghService.GetRepositoriesAsync();
+        }
+        catch {
+            _errorMessage = "An error occured when loading the repositories. Please try again later, or just check them out on my Github.";
+        }
+
+        await base.OnInitializedAsync();
+    }
+}

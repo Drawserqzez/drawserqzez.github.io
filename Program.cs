@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Draws.Web.Services;
 
 namespace Draws.Web
 {
@@ -18,6 +19,9 @@ namespace Draws.Web
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<GithubService>();
+
+            // TODO: Potentially use MVVM instead of whatever is done now for good impression etc
 
             await builder.Build().RunAsync();
         }

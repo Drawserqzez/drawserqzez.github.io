@@ -1,0 +1,36 @@
+.repo-display-block {
+    display: flex;
+    flex-direction: column;
+    border: var(--dark-contrast) 1px outset;
+    border-radius: 1.2em;
+
+    width: 95%;
+    height: 20vh;
+    overflow: hidden;
+
+    padding: 1em;
+    margin: 1em;
+
+    cursor: pointer;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: underline var(--dark-contrast);
+
+    margin-bottom: .7em;
+}
+
+@media (min-width: 800px) {
+    .repo-display-block {
+        width: 33vw;
+        height: 18vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .repo-display-block {
+        width: 25vw;
+    }
+}

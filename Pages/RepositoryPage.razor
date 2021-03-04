@@ -1,0 +1,27 @@
+@page "/portfolio/repo/{RepoName}"
+
+@using Draws.Web.Data
+@using Draws.Web.Services
+
+@inject GithubService ghService
+
+@if (_repo != null) {
+    <h1>@_repo.Name</h1>
+    <p>I framtiden kommer mer detaljer om repot att visas här :)</p>
+}
+else {
+    <p>Loading...</p>
+}
+
+@code {
+    [Parameter]
+    public string RepoName { get; set; }
+
+    private Repository _repo;
+
+    protected override async Task OnInitializedAsync() {
+        _repo = await ghService.GetRepositoryAsync(RepoName);
+
+        await base.OnInitializedAsync();
+    }
+}

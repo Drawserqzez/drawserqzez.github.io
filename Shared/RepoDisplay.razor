@@ -1,0 +1,12 @@
+@using Draws.Web.Data
+
+<div class="repo-display-block">
+    <div class="header">@Repository.Name</div>
+    <p>@Repository.Description</p>
+    <a href="/portfolio/repo/@Repository.Name">Läs mer...</a>
+</div>
+
+@code {
+    [Parameter]
+    public Repository Repository { get; set; }
+}

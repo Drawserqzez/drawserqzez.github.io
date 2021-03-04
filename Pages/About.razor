@@ -1,3 +1,12 @@
 @page "/about/"
 
-<h1>My name is Algot and this is my page :)</h1>
+@using Draws.Web.Data
+@using Draws.Web.Services
+
+@inject GithubService ghService
+
+<h1>Mitt namn är Algot och det här är min sida :)</h1>
+
+@code {
+    // TODO: Get this to fetch the readme of Drawserqzez/Drawserqzez and throw that in here
+}

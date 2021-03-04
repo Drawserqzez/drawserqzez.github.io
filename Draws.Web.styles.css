@@ -1,3 +1,22 @@
+/* /Pages/Portfolio.razor.rz.scp.css */
+.repo-container[b-bzu2md7ulc] {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 800px) {
+    .repo-container[b-bzu2md7ulc] {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 90vw;
+    }
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dg521tpm3] {
     position: relative;
@@ -35,4 +54,41 @@ nav[b-448in6zevr] {
     text-decoration: none;
     border: whitesmoke 1px solid;
     border-radius: 10px;
+}
+/* /Shared/RepoDisplay.razor.rz.scp.css */
+.repo-display-block[b-arb64w9v6d] {
+    display: flex;
+    flex-direction: column;
+    border: var(--dark-contrast) 1px outset;
+    border-radius: 1.2em;
+
+    width: 95%;
+    height: 20vh;
+    overflow: hidden;
+
+    padding: 1em;
+    margin: 1em;
+
+    cursor: pointer;
+}
+
+.header[b-arb64w9v6d] {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: underline var(--dark-contrast);
+
+    margin-bottom: .7em;
+}
+
+@media (min-width: 800px) {
+    .repo-display-block[b-arb64w9v6d] {
+        width: 33vw;
+        height: 18vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .repo-display-block[b-arb64w9v6d] {
+        width: 25vw;
+    }
 }

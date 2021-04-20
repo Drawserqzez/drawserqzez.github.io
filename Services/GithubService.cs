@@ -1,6 +1,7 @@
 using Draws.Web.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -18,11 +19,23 @@ namespace Draws.Web.Services {
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json")); 
         }
 
+        public async Task<Repository> GetLastEditedRepo() {
+            var repos = await GetRepositoriesAsync();
+            repos = repos.OrderByDescending(x => x.UpdatedAt);
+
+            return repos.First();
+        }
+
         private async Task<ReadmeFile> GetReadme(Repository repository) {
             Uri requestUri = new Uri($"{_baseUrl}/repos/{_username}/{repository.Name}/readme");
-            var response = await SendRequest(requestUri);
+            try {
+                var response = await SendRequest(requestUri);
 
-            return await JsonSerializer.DeserializeAsync<ReadmeFile>(await response.Content.ReadAsStreamAsync());
+                return await JsonSerializer.DeserializeAsync<ReadmeFile>(await response.Content.ReadAsStreamAsync());
+            }
+            catch {
+                return new ReadmeFile() { };
+            }
         }
 
         public async Task<IEnumerable<Repository>> GetRepositoriesAsync() {
@@ -40,12 +53,7 @@ namespace Draws.Web.Services {
             
             Repository repo = await JsonSerializer.DeserializeAsync<Repository>(await response.Content.ReadAsStreamAsync());
 
-            try {
-                repo.Readme = await GetReadme(repo);
-            }
-            catch {
-                repo.Readme = null;
-            }
+            repo.Readme = await GetReadme(repo);
 
             return repo;
         }

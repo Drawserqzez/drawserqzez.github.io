@@ -1,3 +1,21 @@
 ﻿@page "/"
 
-<h1 class="text-center">WIP - Min personliga sida kommer att vara här någon gång - WIP</h1>
+@using Draws.Web.Data
+@using Draws.Web.Services
+
+@inject GithubService GithubService
+
+<h1 class="text-center">Algot Holton - Developer</h1>
+
+@if (_lastEditedRepo != null) {
+    <h3 class="text-center mt-3">Last seen editing <a href="@_lastEditedRepo.Url">@_lastEditedRepo.Name</a> at @_lastEditedRepo.UpdatedAt.ToLocalTime().ToString("dd/mm/yyyy")</h3>
+}
+
+@code {
+    private Repository _lastEditedRepo; 
+
+    protected override async Task OnInitializedAsync() {
+        _lastEditedRepo = await GithubService.GetLastEditedRepo();
+        await base.OnInitializedAsync();
+    }
+}

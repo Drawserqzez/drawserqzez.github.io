@@ -1,7 +1,7 @@
 .repo-display-block {
     display: flex;
     flex-direction: column;
-    border: var(--dark-contrast) 1px outset;
+    border: var(--dark-contrast) 2px solid;
     border-radius: 1.2em;
 
     width: 95%;
@@ -12,6 +12,10 @@
     margin: 1em;
 
     cursor: pointer;
+}
+
+.repo-display-block:hover {
+    border-style: dashed;
 }
 
 .header {

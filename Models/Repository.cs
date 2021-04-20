@@ -12,7 +12,7 @@ namespace Draws.Web.Data {
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("url")]
+        [JsonPropertyName("html_url")]
         public Uri Url { get; set; }
         
         [JsonPropertyName("updated_at")]

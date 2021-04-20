@@ -31,9 +31,6 @@ namespace Draws.Web.Services {
 
             var repos = await JsonSerializer.DeserializeAsync<IEnumerable<Repository>>(await response.Content.ReadAsStreamAsync());
 
-            // foreach (var repo in repos)
-            //     repo.Readme = await GetReadme(repo);
-
             return repos;
         }
 
@@ -42,7 +39,13 @@ namespace Draws.Web.Services {
             var response = await SendRequest(requestUri);
             
             Repository repo = await JsonSerializer.DeserializeAsync<Repository>(await response.Content.ReadAsStreamAsync());
-            repo.Readme = await GetReadme(repo);
+
+            try {
+                repo.Readme = await GetReadme(repo);
+            }
+            catch {
+                repo.Readme = null;
+            }
 
             return repo;
         }

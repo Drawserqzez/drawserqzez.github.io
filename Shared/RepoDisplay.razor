@@ -1,12 +1,17 @@
 @using Draws.Web.Data
 
-<div class="repo-display-block">
+@inject NavigationManager NavManager
+
+<div class="repo-display-block cursor-pointer" @onclick="GoToRepo">
     <div class="header">@Repository.Name</div>
     <p>@Repository.Description</p>
-    <a href="/portfolio/repo/@Repository.Name">Läs mer...</a>
 </div>
 
 @code {
     [Parameter]
     public Repository Repository { get; set; }
+
+    private void GoToRepo() {
+        NavManager.NavigateTo($"/portfolio/repo/{Repository.Name}");
+    }
 }

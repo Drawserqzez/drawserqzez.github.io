@@ -3,9 +3,9 @@
 @using Draws.Web.Data
 @using Draws.Web.Services
 
-@inject GithubService ghService
+@inject GithubService GithubService
 
-<h1>Här kan du hitta en lista på alla mina repos på github!</h1>
+<h1 class="text-center">Här kan du hitta en lista på alla mina repos på github!</h1>
 
 @if (_repos != null && _repos.Any()) {
     <div class="d-flex justify-content-evenly repo-container">
@@ -27,7 +27,7 @@ else {
 
     protected override async Task OnInitializedAsync() {
         try {
-            _repos = await ghService.GetRepositoriesAsync();
+            _repos = await GithubService.GetRepositoriesAsync();
         }
         catch {
             _errorMessage = "An error occured when loading the repositories. Please try again later, or just check them out on my Github.";

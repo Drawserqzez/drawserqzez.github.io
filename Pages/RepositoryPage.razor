@@ -6,8 +6,21 @@
 @inject GithubService ghService
 
 @if (_repo != null) {
-    <h1>@_repo.Name</h1>
-    <p>I framtiden kommer mer detaljer om repot att visas här :)</p>
+    <h1 class="header">@_repo.Name</h1>
+    <div class="info-box">
+        @if (String.IsNullOrEmpty(_repo.Description)) {
+            <p class="ingress">
+                Oops, it looks like this repo doesn't have a description yet!
+                <a href="@(_repo.Url.ToString() + "/issues/new")" target="_blank">Create an issue over at github!</a>
+            </p>
+        }
+        else {
+            <p class="ingress">@_repo.Description</p>
+        }
+        
+        <p>This repo was last updated: @_repo.UpdatedAt.ToLocalTime().ToString("dd/mm/yyyy")</p>
+        <p><a href="@_repo.Url" target="_blank">Read more...</a></p>
+    </div>
 }
 else {
     <p>Loading...</p>
@@ -21,7 +34,6 @@ else {
 
     protected override async Task OnInitializedAsync() {
         _repo = await ghService.GetRepositoryAsync(RepoName);
-
         await base.OnInitializedAsync();
     }
 }

@@ -17,6 +17,46 @@
         width: 90vw;
     }
 }
+/* /Pages/RepositoryPage.razor.rz.scp.css */
+.header[b-ii39lox41u] {
+    text-decoration: underline var(--dark-contrast);
+    text-align: center;
+
+    margin-bottom: 1em;
+}
+
+.info-box[b-ii39lox41u] {
+    display: flex;
+    flex-direction: column;
+    border: var(--dark-contrast) 2px solid;
+    border-radius: 1.2em;
+
+    width: 90%;
+    min-height: 40vh;
+
+    margin: 0 5%;
+    padding: 1em;
+
+    font-size: 1.2em;
+}
+
+.ingress[b-ii39lox41u] {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+@media (min-width: 800px) {
+    .info-box[b-ii39lox41u] {
+        min-height: 18vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .info-box[b-ii39lox41u] {
+        width: 60vw;
+        margin: 0 20vw;
+    }
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dg521tpm3] {
     position: relative;
@@ -59,7 +99,7 @@ nav[b-448in6zevr] {
 .repo-display-block[b-arb64w9v6d] {
     display: flex;
     flex-direction: column;
-    border: var(--dark-contrast) 1px outset;
+    border: var(--dark-contrast) 2px solid;
     border-radius: 1.2em;
 
     width: 95%;
@@ -70,6 +110,10 @@ nav[b-448in6zevr] {
     margin: 1em;
 
     cursor: pointer;
+}
+
+.repo-display-block:hover[b-arb64w9v6d] {
+    border-style: dashed;
 }
 
 .header[b-arb64w9v6d] {

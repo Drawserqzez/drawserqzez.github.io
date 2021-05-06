@@ -1,0 +1,26 @@
+.blob-container {
+    justify-content: space-around;
+}
+
+.social-blob {
+    border: solid 1px var(--dark-contrast);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    color: var(--dark-contrast);
+    font-size: 2.5em;
+
+    text-align: center;
+}
+
+.social-blob:hover {
+    color: var(--dark-text);
+}
+
+@media (min-width: 800px) {
+    .blob-container {
+        justify-content: unset;
+
+        margin: 1em auto;
+    }
+}

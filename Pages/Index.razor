@@ -8,7 +8,7 @@
 <h1 class="text-center">Algot Holton - Developer</h1>
 
 @if (_lastEditedRepo != null) {
-    <h3 class="text-center mt-3">Last seen editing <a href="@_lastEditedRepo.Url">@_lastEditedRepo.Name</a> at @_lastEditedRepo.UpdatedAt.ToLocalTime().ToString("dd/mm/yyyy")</h3>
+    <h3 class="text-center mt-3">Last seen editing <a href="@_lastEditedRepo.Url">@_lastEditedRepo.Name</a> at @_lastEditedRepo.UpdatedAt.ToLocalTime().ToString("dd/MM/yyyy")</h3>
 }
 
 @code {

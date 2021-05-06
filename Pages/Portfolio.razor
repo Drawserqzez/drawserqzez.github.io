@@ -14,7 +14,7 @@
         }
     </div>
 }
-else if (String.IsNullOrEmpty(_errorMessage)) {
+else if (!String.IsNullOrEmpty(_errorMessage)) {
     <h4>@_errorMessage</h4>
 } 
 else {
